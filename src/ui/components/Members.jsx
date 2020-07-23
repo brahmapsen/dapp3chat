@@ -54,7 +54,7 @@ const Members = (props) => {
             <span>
               <img src={CrossOut} alt="close" />
             </span>
-            Add mods
+            Add mods-----
           </button>
 
           <button
@@ -64,7 +64,7 @@ const Members = (props) => {
             <span>
               <img src={CrossOut} alt="close" />
             </span>
-            Add members
+            Add members.....
           </button>
         </div>
       )}

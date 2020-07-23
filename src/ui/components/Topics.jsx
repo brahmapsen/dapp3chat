@@ -39,10 +39,7 @@ const Topics = (props) => {
         </ul>
       </div>
 
-      <button
-        onClick={() => handleAppModals('NewTopicModal')}
-        className="topics_newTopic"
-      >
+      <button onClick={() => handleAppModals('NewTopicModal')} className="topics_newTopic" >
         Create Topic
       </button>
     </section>

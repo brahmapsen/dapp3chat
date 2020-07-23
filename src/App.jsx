@@ -12,6 +12,10 @@ import Cover from './ui/views/Cover';
 import Chat from './ui/views/Chat';
 import './App.css';
 
+import Box from '3box';
+
+
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -47,15 +51,16 @@ class App extends Component {
     this.getChatContractAndTopics();
 
     // Step 1 - add getProfile call
-    const myProfile = {}
+    const myProfile = await Box.getProfile(myAddress);
 
     // Step 2 - authenticate user and space
-    const box = 'authenticate 3box here'
+    const box = await Box.openBox(myAddress, window.ethereum, {})
     // await onSyncDone
+    await box.syncDone
 
     // open 3chat space
-    const chatSpace = 'the chat space'
-    const myDid = 'myDID'
+    const chatSpace = await box.openSpace('3chat')
+    const myDid = chatSpace.DID;
 
     // set all to state and continue
     this.setState({ box, chatSpace, myDid, myProfile, myAddress });

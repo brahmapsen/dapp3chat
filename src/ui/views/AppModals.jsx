@@ -50,6 +50,9 @@ class AppModals extends Component {
 
     try {
       // Step 6 - add member
+      alert('Alert: adding a member')
+      await activeTopic.addMember(threadMember);
+      alert('before update thread capabilities')
       updateThreadCapabilities();
       handleFormChange(null, 'threadMember');
       handleAppModals('AddNewMemberModal');
@@ -70,6 +73,7 @@ class AppModals extends Component {
 
     try {
       // Step 6 - add moderator
+      await activeTopic.addModerator(threadMod);
       updateThreadCapabilities();
       handleFormChange(null, 'threadMod');
       handleAppModals('AddNewModeratorModal');

@@ -4,6 +4,10 @@ import resolve from 'did-resolver';
 
 import '../styles/index.scss';
 
+import Box from '3box';
+
+import ProfileHover from 'profile-hover';
+
 class ProfilePicture extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +26,8 @@ class ProfilePicture extends Component {
 
     if (this.props.did) { // profiles via listModerator or listMember
       const doc = await resolve(this.props.did);
-      const profile = {}
+      // Step 1 - add getProfile call
+      const profile = await Box.getProfile(this.props.did);
       profileName = profile.name;
       profilePicture = profile.image;
       ethAddr = doc.publicKey[2].ethereumAddress;
@@ -51,14 +56,16 @@ class ProfilePicture extends Component {
       <React.Fragment>
         {
           isUseHovers ? (
-            <ProfileTile
-              image={image}
-              isTile={isTile}
-              profileName={profileName}
-              isModerator={isModerator}
-              isOwner={isOwner}
-              address={ethAddr}
-            />
+            <ProfileHover noTheme address={ethAddr} orientation="left">
+              <ProfileTile
+                          image={image}
+                          isTile={isTile}
+                          profileName={profileName}
+                          isModerator={isModerator}
+                          isOwner={isOwner}
+                          address={ethAddr}
+                        />
+              </ProfileHover>
           ) : (
               <ProfileTile
                 image={image}

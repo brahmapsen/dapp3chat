@@ -14,11 +14,15 @@ const Cover = ({ handleLogin, disableLogin }) => (
         <div className="coverPage_ui_wrapper_logo">
           <BoxLogo />
         </div>
+
         <p className="coverPage_ui_wrapper_line">Where topics come alive</p>
+
         <button onClick={handleLogin} disabled={disableLogin}>
           Get Started
         </button>
+
         <p className="coverPage_ui_wrapper_tech">powered by 3Box</p>
+        
       </div>
     </section>
   </div>

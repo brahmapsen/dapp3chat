@@ -35,6 +35,7 @@ class Dialogue extends Component {
     const { activeTopic, postMsg, updateThreadError, handleFormChange } = this.props;
     try {
       // Step 7 - make a post
+      await activeTopic.post(postMsg);
       handleFormChange(null, 'postMsg');
       this.scrollToBottom();
     } catch (error) {
